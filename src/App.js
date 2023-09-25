@@ -20,8 +20,8 @@ function App() {
       <div className="flex flex-col justify-center items-center h-full pt-36">
         <span className="font-bold">Instagram ile giriş yap</span>
 
-        <input type="text" placeholder="Kullanıcı adı, telefon veya e-posta" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-4 pl-4 outline-[#D0D0D0] max-sm:text-sm" />
-        <input type="password" placeholder="Şifre" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-2 pl-4 outline-[#D0D0D0] max-sm:text-sm" />
+        <input type="text" placeholder="Kullanıcı adı, telefon veya e-posta" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-4 pl-4 outline-[#D0D0D0]" />
+        <input type="password" placeholder="Şifre" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-2 pl-4 outline-[#D0D0D0]" />
 
         {/* giriş buton */}
         <div className="relative text-[15px]">
