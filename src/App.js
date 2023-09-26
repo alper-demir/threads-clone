@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import topbg from "./assets/images/thread-login-screen-topbg.jpg"
 import toast, { Toaster } from 'react-hot-toast';
 import qr from "./assets/images/qr.png"
@@ -6,11 +6,15 @@ const warning = () => toast('Instagram kullanıcı adını, telefon numaranı ve
 function App() {
 
   const [valid, setValid] = useState(false)
+  const [user, setUser] = useState("")
+  const [password, setPassword] = useState("")
 
-  
+  useEffect(() => {
+    user.length >= 1 && password.length >= 1 ? setValid(true) : setValid(false)
+  }, [user, password])
 
   return (
-    
+
     <div className="h-screen overflow-y-scroll">
 
       <div className="fixed top-0 left-[3.67rem] w-[93%] max-sm:left-4">
@@ -20,9 +24,8 @@ function App() {
       <div className="flex flex-col justify-center items-center h-full pt-36 z-10 relative">
         <span className="font-bold">Instagram ile giriş yap</span>
 
-        <input type="text" placeholder="Kullanıcı adı, telefon veya e-posta" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-4 pl-4 outline-[#D0D0D0]" />
-        <input type="password" placeholder="Şifre" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-2 pl-4 outline-[#D0D0D0]" />
-
+        <input type="text" placeholder="Kullanıcı adı, telefon veya e-posta" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-3 pl-4 outline-[#D0D0D0]" onChange={(e) => { setUser(e.target.value) }} />
+        <input type="password" placeholder="Şifre" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-2 pl-4 outline-[#D0D0D0]" onChange={(e) => { setPassword(e.target.value) }} />
         {/* giriş buton */}
         <div className="relative text-[15px]">
           {!valid ? (
@@ -34,7 +37,7 @@ function App() {
             </button>
           ) : (
             <button
-              className="text-center bg-black text-white w-[370px] h-[55px] rounded-xl font-bold mt-2"
+              className="text-center bg-black text-white w-[370px] h-[55px] rounded-xl font-bold mt-2 cursor-pointer"
               disabled
             >
               Giriş yap
