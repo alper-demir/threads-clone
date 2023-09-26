@@ -17,7 +17,7 @@ function App() {
         <img src={topbg} alt=".." className="object-cover" />
       </div>
 
-      <div className="flex flex-col justify-center items-center h-full pt-36">
+      <div className="flex flex-col justify-center items-center h-full pt-36 z-10 relative">
         <span className="font-bold">Instagram ile giriş yap</span>
 
         <input type="text" placeholder="Kullanıcı adı, telefon veya e-posta" className="bg-[#F5F5F5] w-[370px] p-4 rounded-xl mt-4 pl-4 outline-[#D0D0D0]" />
