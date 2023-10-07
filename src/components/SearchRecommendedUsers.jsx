@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchRecommendedUsers = ({ user }) => {
     return (
-        <div className='flex gap-x-3 mt-4'>
+        <div className='flex gap-x-3 mb-3'>
             <div className='mt-1'><img src={user.image} alt="" className='h-9 w-9 min-h-[36px] min-w-[36px] object-cover rounded-full' /></div>
             <div className='flex flex-col w-full border-b-[1px] pb-3'>
                 <div className='flex justify-between items-center'>

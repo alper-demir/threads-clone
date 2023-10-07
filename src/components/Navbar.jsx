@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "../assets/css/navbar.css"
 import { Link, NavLink } from 'react-router-dom'
 import Box from '@mui/material/Box';
@@ -135,7 +135,7 @@ const Navbar = () => {
                 aria-describedby="modal-modal-description"
 
             >
-                <Box className='flex flex-col justify-center items-center' sx={style}>
+                <Box className='flex flex-col justify-center items-center outline-none' sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         <span className='text-white font-bold text-[16px]'>Yeni yazışma</span>
                     </Typography>
@@ -143,7 +143,7 @@ const Navbar = () => {
                         <Typography>
                             <div className='flex gap-x-3 text-[15px] text-[#999999] p-6 pb-4'>
                                 <div>
-                                    <img src={img} alt="" className='h-9 w-9 rounded-full object-cover' />
+                                    <img src={img} alt="" className='h-9 w-9 min-w-[36px] min-h-[36px] rounded-full object-cover' />
                                 </div>
                                 <div className='flex flex-col -mt-[2px] w-full'>
                                     <div className='font-semibold text-black'>alper.iron</div>
