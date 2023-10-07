@@ -1,8 +1,8 @@
-import React from 'react'
 import { useEffect, useState } from "react";
 import topbg from "../assets/images/thread-login-screen-topbg.jpg"
 import toast, { Toaster } from 'react-hot-toast';
 import qr from "../assets/images/qr.png"
+import Footer from '../components/Footer';
 const warning = () => toast('Instagram kullanıcı adını, telefon numaranı veya e-posta adresini gir.');
 const Login = () => {
 
@@ -72,15 +72,7 @@ const Login = () => {
                     </div>
 
 
-                    <div className="footer text-[#999999] text-xs absolute bottom-[1.65rem]">
-                        <ul className="flex gap-3">
-                            <li>© 2023</li>
-                            <li className="hover:underline">Threads Koşulları</li>
-                            <li className="hover:underline">Gizlilik İlkesi</li>
-                            <li className="hover:underline">Çerezler</li>
-                            <li>Sorun bildir</li>
-                        </ul>
-                    </div>
+                    <Footer />
 
                     <Toaster
                         toastOptions={{

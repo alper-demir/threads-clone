@@ -1,4 +1,3 @@
-import React from 'react'
 import StartPost from './../components/StartPost';
 import Posts from '../components/Posts';
 import gif from "../assets/images/ahsokavsvader.gif"
@@ -6,6 +5,7 @@ import sunset from "../assets/images/sunset.jpg"
 import triss from "../assets/images/triss.jpg"
 import cs2 from "../assets/video/cs2.mp4"
 import { Link } from 'react-router-dom';
+import Footer from './../components/Footer';
 const HomeMain = () => {
 
   const posts = [
@@ -62,7 +62,7 @@ const HomeMain = () => {
   return (
 
     <div>
-      <div className='max-w-[572px] mx-auto flex justify-center flex-col'>
+      <div className='max-w-[572px] mx-auto flex justify-center flex-col relative'>
 
         <StartPost />
         {posts.map((post) => (
@@ -73,6 +73,7 @@ const HomeMain = () => {
         <div className='h-40 flex justify-center items-center max-sm:mb-28'>
           <Link to="/login" className='p-3 bg-blue-700 hover:opacity-80 text-white rounded-xl'>Kayıt ol sayfasını gördün mü??</Link>
         </div>
+        <div className="flex items-center justify-center"><Footer /></div>
       </div>
     </div>
   )
