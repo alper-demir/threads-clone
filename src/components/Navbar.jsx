@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import "../assets/css/navbar.css"
 import { Link, NavLink } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import img from "../assets/images/2.jpg"
+
+
+const style = {
+    position: 'absolute',
+    top: '45%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+};
+
 const Navbar = () => {
 
     const [post, setPost] = useState(""); // for you or follow topics
-
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     useEffect(() => {
         const status = localStorage.getItem("post-status") || "Senin için";
         setPost(status)
@@ -21,14 +36,14 @@ const Navbar = () => {
 
     const dropDownSettings = () => {
         const settings = document.getElementById("settings");
-        if(settings.classList.contains("hidden")){
+        if (settings.classList.contains("hidden")) {
             settings.classList.remove("hidden")
         }
-        else{
+        else {
             settings.classList.add("hidden")
         }
     }
-    
+
     return (
         <div className='h-[74px] w-[81%] mx-auto max-[1247px]:w-full'>
             <header className='flex justify-around items-center h-full max-[1247px]:justify-between max-[1247px]:mx-5 max-[700px]:justify-center'>
@@ -51,7 +66,7 @@ const Navbar = () => {
                         <NavLink to="/search" className='hover:bg-[#F5F5F5] py-[20px] px-[32px] rounded-md my-[4px] mx-[2px] transition-all duration-500 cursor-pointer'>
                             <svg aria-label="Ara" class="x1lliihq x1n2onr6" color="rgb(184, 184, 184)" fill="transparent" height="26" role="img" viewBox="0 0 26 26" width="26"><title>Ara</title><path clip-rule="evenodd" d="M3.5 11.5C3.5 7.08172 7.08172 3.5 11.5 3.5C15.9183 3.5 19.5 7.08172 19.5 11.5C19.5 15.9183 15.9183 19.5 11.5 19.5C7.08172 19.5 3.5 15.9183 3.5 11.5ZM11.5 1C5.70101 1 1 5.70101 1 11.5C1 17.299 5.70101 22 11.5 22C13.949 22 16.2023 21.1615 17.9883 19.756L22.3661 24.1339C22.8543 24.622 23.6457 24.622 24.1339 24.1339C24.622 23.6457 24.622 22.8543 24.1339 22.3661L19.756 17.9883C21.1615 16.2023 22 13.949 22 11.5C22 5.70101 17.299 1 11.5 1Z" fill="currentColor" fill-rule="evenodd"></path></svg>
                         </NavLink>
-                        <li className='hover:bg-[#F5F5F5] py-[20px] px-[32px] rounded-md my-[4px] mx-[2px] cursor-pointer'>
+                        <li onClick={handleOpen} className='hover:bg-[#F5F5F5] py-[20px] px-[32px] rounded-md my-[4px] mx-[2px] cursor-pointer'>
                             <svg aria-label="Oluştur" class="x1lliihq x1n2onr6" color="rgb(184, 184, 184)" fill="transparent" height="26" role="img" viewBox="0 0 26 26" width="26"><title>Oluştur</title><path d="M22.75 13L22.75 13.15C22.75 16.5103 22.75 18.1905 22.096 19.4739C21.5208 20.6029 20.6029 21.5208 19.4739 22.096C18.1905 22.75 16.5103 22.75 13.15 22.75L12.85 22.75C9.48969 22.75 7.80953 22.75 6.52606 22.096C5.39708 21.5208 4.4792 20.6029 3.90396 19.4739C3.25 18.1905 3.25 16.5103 3.25 13.15L3.25 12.85C3.25 9.48968 3.25 7.80953 3.90396 6.52606C4.4792 5.39708 5.39708 4.4792 6.52606 3.90396C7.80953 3.25 9.48968 3.25 12.85 3.25L13 3.25" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path><path d="M21.75 4.25L13.75 12.25" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path></svg>
                         </li>
                         <NavLink to="/activity" className='hover:bg-[#F5F5F5] py-[20px] px-[32px] rounded-md my-[4px] mx-[2px] transition-all duration-500 cursor-pointer'>
@@ -63,7 +78,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                
+
                 {/* settings-dropdown */}
                 <div className="group cursor-pointer max-[700px]:absolute max-[700px]:top-[25px] max-[700px]:right-5 relative">
                     <svg onClick={dropDownSettings} aria-label="Daha Fazla" class="text-[#b8b8b8] group-hover:text-black transition-colors duration-300" fill="rgb(184, 184, 184)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Daha Fazla</title><rect fill="currentColor" height="2.5" rx="1.25" width="21" x="3" y="7"></rect><rect fill="currentColor" height="2.5" rx="1.25" width="14" x="10" y="15"></rect></svg>
@@ -98,7 +113,7 @@ const Navbar = () => {
                         <NavLink to="/search" className='hover:bg-[#F5F5F5] py-5 px-8 rounded-md my-[4px] mx-[2px] transition-all duration-500 cursor-pointer max-[700px]:px-4'>
                             <svg aria-label="Ara" class="x1lliihq x1n2onr6" color="rgb(184, 184, 184)" fill="transparent" height="26" role="img" viewBox="0 0 26 26" width="26"><title>Ara</title><path clip-rule="evenodd" d="M3.5 11.5C3.5 7.08172 7.08172 3.5 11.5 3.5C15.9183 3.5 19.5 7.08172 19.5 11.5C19.5 15.9183 15.9183 19.5 11.5 19.5C7.08172 19.5 3.5 15.9183 3.5 11.5ZM11.5 1C5.70101 1 1 5.70101 1 11.5C1 17.299 5.70101 22 11.5 22C13.949 22 16.2023 21.1615 17.9883 19.756L22.3661 24.1339C22.8543 24.622 23.6457 24.622 24.1339 24.1339C24.622 23.6457 24.622 22.8543 24.1339 22.3661L19.756 17.9883C21.1615 16.2023 22 13.949 22 11.5C22 5.70101 17.299 1 11.5 1Z" fill="currentColor" fill-rule="evenodd"></path></svg>
                         </NavLink>
-                        <li className='hover:bg-[#F5F5F5] py-5 px-8 rounded-md my-[4px] mx-[2px] transition-all duration-500 cursor-pointer max-[700px]:px-4'>
+                        <li onClick={handleOpen} className='hover:bg-[#F5F5F5] py-5 px-8 rounded-md my-[4px] mx-[2px] transition-all duration-500 cursor-pointer max-[700px]:px-4'>
                             <svg aria-label="Oluştur" class="x1lliihq x1n2onr6" color="rgb(184, 184, 184)" fill="transparent" height="26" role="img" viewBox="0 0 26 26" width="26"><title>Oluştur</title><path d="M22.75 13L22.75 13.15C22.75 16.5103 22.75 18.1905 22.096 19.4739C21.5208 20.6029 20.6029 21.5208 19.4739 22.096C18.1905 22.75 16.5103 22.75 13.15 22.75L12.85 22.75C9.48969 22.75 7.80953 22.75 6.52606 22.096C5.39708 21.5208 4.4792 20.6029 3.90396 19.4739C3.25 18.1905 3.25 16.5103 3.25 13.15L3.25 12.85C3.25 9.48968 3.25 7.80953 3.90396 6.52606C4.4792 5.39708 5.39708 4.4792 6.52606 3.90396C7.80953 3.25 9.48968 3.25 12.85 3.25L13 3.25" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path><path d="M21.75 4.25L13.75 12.25" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path></svg>
                         </li>
                         <NavLink to="/activity" className='hover:bg-[#F5F5F5] py-5 px-8 rounded-md my-[4px] mx-[2px] transition-all duration-500 cursor-pointer max-[700px]:px-4'>
@@ -111,9 +126,49 @@ const Navbar = () => {
                     </ul>
                 </nav>
 
-
-
             </header>
+            {/* create-modal */}
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+
+            >
+                <Box className='flex flex-col justify-center items-center' sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        <span className='text-white font-bold text-[16px]'>Yeni yazışma</span>
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }} className="bg-white rounded-2xl flex flex-col w-[618px] max-[755px]:w-[378px] max-[378px]:w-[250px]">
+                        <Typography>
+                            <div className='flex gap-x-3 text-[15px] text-[#999999] p-6 pb-4'>
+                                <div>
+                                    <img src={img} alt="" className='h-9 w-9 rounded-full object-cover' />
+                                </div>
+                                <div className='flex flex-col -mt-[2px] w-full'>
+                                    <div className='font-semibold text-black'>alper.iron</div>
+                                    <div className='-mt-[2px]'><input type="text" placeholder='Bir yazışma başlat...' className='border-none outline-none text-black w-full' /></div>
+                                    <div className='mt-2 cursor-pointer'>
+                                        <svg aria-label="Medya ekle" class="x1lliihq x1n2onr6" color="rgb(153, 153, 153)" fill="rgb(153, 153, 153)" height="20" role="img" viewBox="0 0 24 24" width="20"><title>Medya ekle</title><g><path clip-rule="evenodd" d="M2.00207 9.4959C1.65132 7.00019 1.47595 5.75234 1.82768 4.73084C2.13707 3.83231 2.72297 3.05479 3.50142 2.50971C4.38639 1.89005 5.63425 1.71467 8.12996 1.36392L10.7047 1.00207C13.2004 0.651325 14.4482 0.47595 15.4697 0.827679C16.3682 1.13707 17.1458 1.72297 17.6908 2.50142C17.9171 2.82454 18.0841 3.19605 18.2221 3.65901C17.7476 3.64611 17.2197 3.64192 16.6269 3.64055C16.5775 3.5411 16.5231 3.44881 16.4621 3.36178C16.0987 2.84282 15.5804 2.45222 14.9814 2.24596C14.3004 2.01147 13.4685 2.12839 11.8047 2.36222L7.44748 2.97458C5.78367 3.20841 4.95177 3.32533 4.36178 3.73844C3.84282 4.10182 3.45222 4.62017 3.24596 5.21919C3.01147 5.90019 3.12839 6.73209 3.36222 8.3959L3.97458 12.7531C4.15588 14.0431 4.26689 14.833 4.50015 15.3978C4.50083 16.3151 4.50509 17.0849 4.53201 17.7448C4.13891 17.4561 3.79293 17.1036 3.50971 16.6991C2.89005 15.8142 2.71467 14.5663 2.36392 12.0706L2.00207 9.4959Z" fill="currentColor" fill-rule="evenodd"></path><g id="Frame 290280"><g clip-path="url(#clip0_16905_4767)"><rect fill="none" height="15.5" rx="3.75" stroke="currentColor" stroke-width="1.5" width="15.5" x="6.75" y="5.8894"></rect><path d="M6.6546 17.8894L8.59043 15.9536C9.1583 15.3857 10.0727 15.3658 10.6647 15.9085L12.5062 17.5966C12.9009 17.9584 13.5105 17.9451 13.8891 17.5665L17.8181 13.6376C18.4038 13.0518 19.3536 13.0518 19.9394 13.6375L22.0663 15.7644" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"></path><circle cx="10.75" cy="9.8894" fill="currentColor" r="1.25"></circle></g></g></g><defs><clipPath id="clip0_16905_4767"><rect fill="white" height="17" rx="4.5" width="17" x="6" y="5.1394"></rect></clipPath></defs></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </Typography>
+                        <Typography>
+                            <div className='p-6 text-[15px]'>
+                                <div className="flex justify-between">
+                                    <div className='text-[#999999]'>
+                                        Herkes yanıtlayabilir
+                                    </div>
+                                    <div>
+                                        <button className='px-4 border-[1px] py-1 rounded-xl border-gray-200 text-black'>Paylaş</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Typography>
+                    </Typography>
+                </Box>
+            </Modal>
         </div>
     )
 }
