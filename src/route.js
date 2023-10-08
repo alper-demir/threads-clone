@@ -25,7 +25,21 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/profile",
-                element: <Profile />
+                element: <Profile />,
+                children : [
+                    {
+                        path: "",
+                        element : "Henüz yazışma yok."
+                    },
+                    {
+                        path: "replies",
+                        element : "Henüz yanıt yok."
+                    },
+                    {
+                        path: "reposts",
+                        element : "Henüz yeniden paylaşım yok."
+                    }
+                ]
             }
         ]
     },
