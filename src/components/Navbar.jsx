@@ -80,9 +80,9 @@ const Navbar = () => {
                 </div>
 
                 {/* settings-dropdown */}
-                <div className="group cursor-pointer max-[700px]:absolute max-[700px]:top-[25px] max-[700px]:right-5 relative">
+                <div className="group cursor-pointer max-[700px]:absolute max-[700px]:top-[25px] max-[700px]:right-5 relative z-10">
                     <svg onClick={dropDownSettings} aria-label="Daha Fazla" class="text-[#b8b8b8] group-hover:text-black transition-colors duration-300" fill="rgb(184, 184, 184)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Daha Fazla</title><rect fill="currentColor" height="2.5" rx="1.25" width="21" x="3" y="7"></rect><rect fill="currentColor" height="2.5" rx="1.25" width="14" x="10" y="15"></rect></svg>
-                    <div id='settings' className='absolute top-7 -left-[8.5rem] border-[1px] border-gray-100 rounded-xl w-[174px] font-semibold text-[15px] hidden'>
+                    <div id='settings' className='absolute top-7 -left-[8.5rem] border-[1px] border-gray-100 rounded-xl w-[174px] font-semibold text-[15px] hidden bg-white'>
                         <ul className='flex flex-col'>
                             <li className='p-3 border-b-[1px]'>Görünümü değiştir</li>
                             <li className='p-3 border-b-[1px]'>Hakkında</li>
