@@ -62,7 +62,7 @@ const HomeMain = () => {
   return (
 
     <div>
-      <div className='max-w-[572px] mx-auto flex justify-center flex-col relative'>
+      <div className='max-w-[572px] mx-auto flex justify-center flex-col relative mt-4'>
 
         <StartPost />
         {posts.map((post) => (

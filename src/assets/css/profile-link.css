@@ -2,3 +2,8 @@
     color: black;
     border-color: black;
 }
+
+html[dark] .active{
+    color: white;
+    border-color: white;
+}

@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <footer className="text-[#999999] text-xs absolute bottom-[1.65rem] max-sm:bottom-24">
+        <footer className="text-[#999999] dark:text-[#777777] text-xs absolute bottom-[1.65rem] max-sm:bottom-24">
             <div>
                 <ul className="flex gap-3">
                     <li>© 2023</li>

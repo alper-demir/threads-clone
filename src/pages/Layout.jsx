@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 
 const Layout = () => {
     return (
-        <div>
+        <div className='dark:bg-[#101010] transition-colors duration-200'>
             <Navbar />
             <Outlet />
         </div>
